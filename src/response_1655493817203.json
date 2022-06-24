@@ -1,0 +1,793 @@
+{
+  "summary": {
+    "query": "restaurant",
+    "queryType": "NON_NEAR",
+    "queryTime": 46,
+    "numResults": 10,
+    "offset": 0,
+    "totalResults": 494,
+    "fuzzyLevel": 1,
+    "geoBias": {
+      "lat": 38.5431,
+      "lon": -90.0034
+    }
+  },
+  "results": [
+    {
+      "type": "POI",
+      "id": "840171000810696",
+      "dist": 204.2626214569957,
+      "info": "search:ta:840171000810696-US",
+      "poi": {
+        "name": "Hardee's Red Burrito",
+        "phone": "+1 618-235-5551",
+        "brands": [
+          {
+            "name": "Hardee's"
+          }
+        ],
+        "categorySet": [
+          {
+            "id": 7315015
+          }
+        ],
+        "url": "https://www.hardees.com",
+        "categories": [
+          "fast food",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "fast food"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "1617",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5922",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "1617 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54192,
+        "lon": -90.0016
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54282,
+          "lon": -90.00275
+        },
+        "btmRightPoint": {
+          "lat": 38.54102,
+          "lon": -90.00045
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.5415,
+            "lon": -90.00159
+          }
+        }
+      ],
+      "dataSources": {
+        "poiDetails": [
+          {
+            "id": "Rm91cnNxdWFyZTo0YzBlNGE2Y2M3MDBjOWI2MjY5N2EzZGQ=",
+            "sourceName": "Foursquare"
+          }
+        ]
+      }
+    },
+    {
+      "type": "POI",
+      "id": "840179000709760",
+      "score": 2.5745074749,
+      "dist": 252.01611244869088,
+      "info": "search:ta:840179000709760-US",
+      "poi": {
+        "name": "Steak-Out",
+        "phone": "+1 618-233-7227",
+        "categorySet": [
+          {
+            "id": 7315045
+          }
+        ],
+        "url": "www.steakout.com/",
+        "categories": [
+          "restaurant",
+          "steak house"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "steak house"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "2013",
+        "streetName": "North 17th Street",
+        "municipality": "Swansea",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-6126",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "2013 North 17th Street, Swansea, IL 62226",
+        "localName": "Swansea"
+      },
+      "position": {
+        "lat": 38.54103,
+        "lon": -90.00222
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54193,
+          "lon": -90.00337
+        },
+        "btmRightPoint": {
+          "lat": 38.54013,
+          "lon": -90.00107
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54103,
+            "lon": -90.00189
+          }
+        }
+      ],
+      "dataSources": {
+        "poiDetails": [
+          {
+            "id": "Rm91cnNxdWFyZTo0ZTRkZWJhMGJkNDEwMWQwZDc5ZTM1NjU=",
+            "sourceName": "Foursquare"
+          }
+        ]
+      }
+    },
+    {
+      "type": "POI",
+      "id": "840179003191372",
+      "score": 2.5744230747,
+      "dist": 569.2412592480846,
+      "info": "search:ta:840179003191372-US",
+      "poi": {
+        "name": "Cozy Diner",
+        "phone": "+1 618-234-7381",
+        "categorySet": [
+          {
+            "id": 7315003
+          }
+        ],
+        "categories": [
+          "american",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "american"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3605",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3605 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54174,
+        "lon": -90.00971
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54264,
+          "lon": -90.01086
+        },
+        "btmRightPoint": {
+          "lat": 38.54084,
+          "lon": -90.00856
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54149,
+            "lon": -90.00971
+          }
+        }
+      ]
+    },
+    {
+      "type": "POI",
+      "id": "840171000729068",
+      "score": 2.5743412971,
+      "dist": 760.0881192146205,
+      "info": "search:ta:840171000729068-US",
+      "poi": {
+        "name": "Papa John's",
+        "phone": "+1 618-257-1000",
+        "brands": [
+          {
+            "name": "Papa John's"
+          }
+        ],
+        "categorySet": [
+          {
+            "id": 7315036
+          }
+        ],
+        "categories": [
+          "pizza",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "pizza"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3809",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5626",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3809 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54176,
+        "lon": -90.01197
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54266,
+          "lon": -90.01312
+        },
+        "btmRightPoint": {
+          "lat": 38.54086,
+          "lon": -90.01082
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54148,
+            "lon": -90.01197
+          }
+        }
+      ],
+      "dataSources": {
+        "poiDetails": [
+          {
+            "id": "Rm91cnNxdWFyZTo0YjI0MDc3ZmY5NjRhNTIwNzM1ZjI0ZTM=",
+            "sourceName": "Foursquare"
+          }
+        ]
+      }
+    },
+    {
+      "type": "POI",
+      "id": "840179004673482",
+      "score": 2.5743412971,
+      "dist": 760.0881192146205,
+      "info": "search:ta:840179004673482-US",
+      "poi": {
+        "name": "Ozark Pizza Company",
+        "phone": "+1 618-257-9869",
+        "categorySet": [
+          {
+            "id": 7315036
+          }
+        ],
+        "categories": [
+          "pizza",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "pizza"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3809",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5626",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3809 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54176,
+        "lon": -90.01197
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54266,
+          "lon": -90.01312
+        },
+        "btmRightPoint": {
+          "lat": 38.54086,
+          "lon": -90.01082
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54148,
+            "lon": -90.01197
+          }
+        }
+      ]
+    },
+    {
+      "type": "POI",
+      "id": "840171000699958",
+      "score": 2.5742380619,
+      "dist": 947.4690369978271,
+      "info": "search:ta:840171000699958-US",
+      "poi": {
+        "name": "SUBWAY",
+        "phone": "+1 618-236-1915",
+        "brands": [
+          {
+            "name": "SUBWAY"
+          }
+        ],
+        "categorySet": [
+          {
+            "id": 7315015
+          }
+        ],
+        "categories": [
+          "fast food",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "fast food"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3905",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5607",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3905 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54187,
+        "lon": -90.01418
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54277,
+          "lon": -90.01533
+        },
+        "btmRightPoint": {
+          "lat": 38.54097,
+          "lon": -90.01303
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54151,
+            "lon": -90.01419
+          }
+        }
+      ],
+      "dataSources": {
+        "poiDetails": [
+          {
+            "id": "Rm91cnNxdWFyZTo0YmU5N2RlN2VlOTZjOTI4ZmIzZGZmYmY=",
+            "sourceName": "Foursquare"
+          }
+        ]
+      }
+    },
+    {
+      "type": "POI",
+      "id": "840179000725771",
+      "score": 2.5742380619,
+      "dist": 947.4690369978271,
+      "info": "search:ta:840179000725771-US",
+      "poi": {
+        "name": "Aml Restaurant Services",
+        "phone": "+1 618-234-7360",
+        "categorySet": [
+          {
+            "id": 7315
+          }
+        ],
+        "categories": [
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3905",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5607",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3905 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54187,
+        "lon": -90.01418
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54277,
+          "lon": -90.01533
+        },
+        "btmRightPoint": {
+          "lat": 38.54097,
+          "lon": -90.01303
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54151,
+            "lon": -90.01419
+          }
+        }
+      ]
+    },
+    {
+      "type": "POI",
+      "id": "840179001351988",
+      "score": 2.5742380619,
+      "dist": 947.4690369978271,
+      "info": "search:ta:840179001351988-US",
+      "poi": {
+        "name": "Southerland Fish & Chicken",
+        "phone": "+1 618-416-6711",
+        "categorySet": [
+          {
+            "id": 7315043
+          }
+        ],
+        "categories": [
+          "restaurant",
+          "seafood"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "seafood"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3905",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5607",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3905 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54187,
+        "lon": -90.01418
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54277,
+          "lon": -90.01533
+        },
+        "btmRightPoint": {
+          "lat": 38.54097,
+          "lon": -90.01303
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54151,
+            "lon": -90.01419
+          }
+        }
+      ]
+    },
+    {
+      "type": "POI",
+      "id": "840179000112966",
+      "score": 2.5742380619,
+      "dist": 947.4690369978271,
+      "info": "search:ta:840179000112966-US",
+      "poi": {
+        "name": "Platinum Soul Cafe",
+        "phone": "+1 618-416-4408",
+        "categorySet": [
+          {
+            "id": 7315
+          }
+        ],
+        "categories": [
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "3905",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5607",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "3905 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54187,
+        "lon": -90.01418
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54277,
+          "lon": -90.01533
+        },
+        "btmRightPoint": {
+          "lat": 38.54097,
+          "lon": -90.01303
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54151,
+            "lon": -90.01419
+          }
+        }
+      ]
+    },
+    {
+      "type": "POI",
+      "id": "840179001693059",
+      "score": 2.5740275383,
+      "dist": 1245.162806036002,
+      "info": "search:ta:840179001693059-US",
+      "poi": {
+        "name": "Papa Vito's Pizza",
+        "phone": "+1 618-416-7901",
+        "categorySet": [
+          {
+            "id": 7315036
+          }
+        ],
+        "url": "www.mypapavitos.com",
+        "categories": [
+          "pizza",
+          "restaurant"
+        ],
+        "classifications": [
+          {
+            "code": "RESTAURANT",
+            "names": [
+              {
+                "nameLocale": "en-US",
+                "name": "pizza"
+              },
+              {
+                "nameLocale": "en-US",
+                "name": "restaurant"
+              }
+            ]
+          }
+        ]
+      },
+      "address": {
+        "streetNumber": "4205",
+        "streetName": "North Belt West",
+        "municipality": "Belleville",
+        "countrySecondarySubdivision": "Saint Clair",
+        "countrySubdivision": "IL",
+        "countrySubdivisionName": "Illinois",
+        "postalCode": "62226",
+        "extendedPostalCode": "62226-5613",
+        "countryCode": "US",
+        "country": "United States",
+        "countryCodeISO3": "USA",
+        "freeformAddress": "4205 North Belt West, Belleville, IL 62226",
+        "localName": "Belleville"
+      },
+      "position": {
+        "lat": 38.54194,
+        "lon": -90.01764
+      },
+      "viewport": {
+        "topLeftPoint": {
+          "lat": 38.54284,
+          "lon": -90.01879
+        },
+        "btmRightPoint": {
+          "lat": 38.54104,
+          "lon": -90.01649
+        }
+      },
+      "entryPoints": [
+        {
+          "type": "main",
+          "position": {
+            "lat": 38.54155,
+            "lon": -90.01762
+          }
+        }
+      ],
+      "dataSources": {
+        "poiDetails": [
+          {
+            "id": "Rm91cnNxdWFyZTo1NWY0YmUxMDQ5OGVjY2IzMzFhNjlkNmE=",
+            "sourceName": "Foursquare"
+          }
+        ]
+      }
+    }
+  ]
+}
