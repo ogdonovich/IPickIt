@@ -82,12 +82,9 @@ const [toggleError, setToggleError] = useState(false)
             </div>
             <div className="form-input">
                 <label for="inputPasswordConfirm" className="form-label">Confirm Password*</label>
-                <input name="passwordconfirm" value={user.password} onChange={userChangeHandler} type="password" className="form-control" id="inputPasswordConfirm" />
+                <input name="passwordconfirm"  onChange={userChangeHandler} type="password" className="form-control" id="inputPasswordConfirm" />
             </div>
-            <div className="form-input">
-                <label for="inputPhone" className="form-label">Phone</label>
-                <input name="phone" value={user.telephone} onChange={userChangeHandler} type="text" className="form-control" id="tel" />
-            </div>
+
 
 
             <div className="d-grid gap-2 ">

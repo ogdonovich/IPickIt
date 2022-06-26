@@ -13,63 +13,68 @@ import Slider from '../Slider/Slider'
 
 
 
+export const PositionContext = React.createContext()
 
 
 
-
-function Home() {
-/*  const [user, setUser] = useState(null)
-  useEffect(() => {
-    const email = localStorage.getItem("email")
-    axios.get(`http://localhost:8080/user/findUserByEmail/${email}`)
-    .then((response) => {
-      setUser(response.data)
-    })
-  }, [])
-
-  const displayUserName = () => {
-    if (user != null) {
-      return user.name
+export default function Home() {
+   const [user, setUser] = useState(null)
+    useEffect(() => {
+      const email = localStorage.getItem("email")
+      axios.get(`http://localhost:8080/user/findUserByEmail/${email}`)
+      .then((response) => {
+        setUser(response.data)
+      })
+    }, [])
+  
+    const displayUserName = () => {
+      if(localStorage.getItem("emailCookie")) {
+        return (
+            ' ' + user.firstName + ' ' + user.lastName
+        )
+      }
+      return "Guest"
     }
-    return "content"
-  }*/
+
+
 
   const [pos, setPosition] = useState(10000)
-  const range = useContext(setPosition)
-  console.log(range);
+  // const range = useContext(setPosition)
+  // console.log(range);
 
 
   return (
-    <div className='center flex-col'>
+    <PositionContext.Provider value={pos}>
       <div className='center flex-col'>
-      <h1 className='center'>Welcome</h1>
+        <div className='center flex-col'>
+          <h1 className='center'>Welcome {displayUserName()}</h1>
+        </div>
+        <div className='center'>
+          <Maploader />
+        </div>
+        <div className='center'>
+          <Slider />
+        </div>
+
+
       </div>
-      <div className='center'>
-      <Maploader pos={pos}/>
-      </div>
-      <div className='center'>
-      <Slider setPosition={range}/>
-</div>
 
 
-    </div>
-    
-
-
+    </PositionContext.Provider>
 
   );
 
 
-  
+
 }
 
-export default Home;
 
 
 
 
-      
-      
+
+
+
 
 
 

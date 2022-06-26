@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo, useCallback } from 'react';
+import { useEffect, useState, useRef, useMemo, useCallback, useContext } from 'react';
 import * as React from 'react';
 import {
   MapContainer,
@@ -8,8 +8,8 @@ import {
   Popup
 } from 'react-leaflet'
 import { L, marker, LatLngExpression, tooltip, icon, Icon } from 'leaflet'
-import places from '../../response_1655493817203.json'
-import { DiscreteSlider, Valuetext } from '../Slider/Slider'
+//import places from '../../response_1655493817203.json'
+import { PositionContext } from '../home/Home';
 
 import axios from 'axios'
 
@@ -22,7 +22,7 @@ import axios from 'axios'
 
 function MapLoader2(props) {
   //Hooks
-  let locations = places;
+  //let locations = places;
 
   useEffect(() => {
     getLocation()
@@ -32,19 +32,26 @@ function MapLoader2(props) {
 
 
   const [center, setCenter] = useState({ lat: 37.09, lng: -95.71 })
-
+  const [locations, setLocations] = useState({ results: [] })
 
   const containerStyle = {
     width: '80vw', height: '70vh'
   };
 
   function useAxiopoicall() {
-    console.log(`https://api.tomtom.com/search/2/poiSearch/restaurant.json?lat=${center.lat}&lon=${center.lng}&radius=${props.pos}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`);
-    axios.get(`https://api.tomtom.com/search/2/poiSearch/restaurant.json?lat=${center.lat}&lon=${center.lng}&radius=${props.pos}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`)
+    let key = "p0HbJr63a4YIthe7AH4iq05DKpndv0Qy"
+    let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(PositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
+    let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${useContext(PositionContext)}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
+    //console.log(``);
+    
+    axios.get(nearBytemp)
       .then((response) => {
-        locations = response.data
+        setLocations(response.data)
         console.log(response.data);
-        console.log(places.results[0].position.lat);
+
+      }).catch((error) => {
+        console.log(error);
+
       })
   }
 
@@ -65,6 +72,7 @@ function MapLoader2(props) {
     setCenter({ lat: position.coords.latitude, lng: position.coords.longitude })
 
 
+
   }
 
   function showError(error) {
@@ -77,6 +85,7 @@ function MapLoader2(props) {
     const map = useMap()
     map.setView(center, 15)
     useAxiopoicall()
+    MarkerMaker()
     return null;
   }
 
@@ -96,11 +105,17 @@ function MapLoader2(props) {
     {
       locations.results.forEach(place => {
 
+        let locationDetials = `${place.poi.name},
+          ${place.poi.phone},
+          ${place.address.freeformAddress}`
+        // console.log(locationDetials);
 
-        let newMark = new marker([place.position.lat, place.position.lon])
-          .bindPopup(place.poi.name)
+
+        let newMark = new marker([place.position.lat, place.position.lon], {icon: locIcon})
+          .bindTooltip(place.poi.name, { permanent: false })
+          .bindPopup(locationDetials)
           .addTo(map)
-        console.log([place.position.lat, place.position.lon])
+        //console.log([place.position.lat, place.position.lon])
       }
 
       )
@@ -150,7 +165,14 @@ function MapLoader2(props) {
     )
   }
 
+  const locIcon = icon({
+    iconUrl: require("../../locationpincur.png"),
+    iconSize: [29, 52],
+    iconAnchor: [15, 20],
+    
+    
 
+  });
 
   const userIcon = icon({
     iconUrl: require("../../pers.png"),

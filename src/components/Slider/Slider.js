@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useContext } from 'react';
+import { PositionContext } from '../home/Home';
 
 
 
@@ -9,7 +10,7 @@ export default function DiscreteSlider({setPostion}) {
 
     function valuetext(value) {
         //console.log(value);
-        React.createContext(value)
+        PositionContext.value = value
       return value;
     }
     
@@ -28,6 +29,7 @@ export default function DiscreteSlider({setPostion}) {
         marks
         min={1000}
         max={50000}
+       //onChange={useContext(valuetext)}
       />
      
     </Box>

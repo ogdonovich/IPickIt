@@ -99,3 +99,6 @@ width: 100%;
   justify-content: center;
 }
 
+.leaflet-popup-tip {
+  visibility: hidden;
+}
