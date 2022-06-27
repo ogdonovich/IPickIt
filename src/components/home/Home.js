@@ -33,7 +33,8 @@ export default function Home() {
     const displayUserName = () => {
       if(localStorage.getItem("email")) {
         return (
-            ' ' + user.firstName + ' ' + user.lastName
+          
+            ' ' + user?.firstName  + ' ' + user?.lastName
         )
       }
       return "Guest"
@@ -53,9 +54,12 @@ export default function Home() {
           <h1 className='center'>Welcome {displayUserName()}</h1>
         </div>
         <div className='center'>
+        
           <Maploader />
+          
         </div>
         <div className='center'>
+          
           <Slider />
         </div>
 

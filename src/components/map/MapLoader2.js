@@ -34,6 +34,9 @@ function MapLoader2(props) {
   const [center, setCenter] = useState({ lat: 37.09, lng: -95.71 })
   const [locations, setLocations] = useState({ results: [] })
 
+  
+  const {pos} = useContext(PositionContext)
+
   const containerStyle = {
     width: '80vw', height: '70vh'
   };
@@ -41,13 +44,15 @@ function MapLoader2(props) {
   function useAxiopoicall() {
     let key = "p0HbJr63a4YIthe7AH4iq05DKpndv0Qy"
     let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(PositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
-    let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${useContext(PositionContext)}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
+    let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${pos}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
     //console.log(``);
+   
     
     axios.get(nearBytemp)
       .then((response) => {
+
         setLocations(response.data)
-        console.log(response.data);
+        console.log(response.data.summary.geoBias);
 
       }).catch((error) => {
         console.log(error);
