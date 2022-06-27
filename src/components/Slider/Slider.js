@@ -8,8 +8,9 @@ import { PositionContext } from '../home/Home';
 
 export default function DiscreteSlider({setPostion}) {
 
-    function valuetext(value) {
+    function Valuetext(value) {
         //console.log(value);
+        //const setPosition= useContext()
         PositionContext.value = value
       return value;
     }
@@ -21,7 +22,7 @@ export default function DiscreteSlider({setPostion}) {
       <Slider sx={{margin: '30px'}}
         aria-label="Distance"
         defaultValue={10000}
-        getAriaValueText={valuetext}
+        getAriaValueText={Valuetext}
         aria-valuetext=""
         aria-labelledby="miles"
         valueLabelDisplay="auto"

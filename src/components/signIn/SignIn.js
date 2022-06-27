@@ -23,7 +23,7 @@ const [toggleError, setToggleError] = useState(false)
 
     const signInSubmitHandler = () => {
         
-
+        console.log(user);
 
         axios.post("http://localhost:8080/user/signIn", user)
         .then((response) => {
