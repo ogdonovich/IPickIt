@@ -6,6 +6,17 @@ import logo from '../../Group 3.svg'
 import mobileLogo from '../../Eyelogo.svg'
 
 const Header = (props) => {
+
+    
+
+  
+    const displayUserName = () => {
+
+
+
+    }
+
+
     return(
         <header className='header flex-row'>
             <div className='third-width'>
@@ -17,9 +28,13 @@ const Header = (props) => {
             {/* <div className='third-width center logo-mobile'>
             <a href="/"><img src={mobileLogo} className='logo-mobile' alt="logo" /></a>
             </div> */}
-            <div className='header third-width header-buttons'>
+            <div className='header third-width header-buttons' >
+                {window.location.pathname === "/signUp" || window.location.pathname === "/signIn" || localStorage.getItem('email') !== undefined  ? <div><a className='header-buttons' href="/signIn">Log out</a></div> : 
+                <div>
                 <a className='header-buttons' href="/signUp">Sign Up</a>
                 <a className='header-buttons' href="/signIn">Sign In</a>
+                </div>
+        }
             </div>
         </header>
     )

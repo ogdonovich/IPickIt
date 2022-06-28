@@ -1,0 +1,56 @@
+import React from "react"
+
+export default function DraggableMarker() {
+    const [draggable, setDraggable] = useState(true)
+    const [pos, setPosition] = useState(center)
+    const markerRef = useRef(null)
+    const eventHandlers = useMemo(
+      () => ({
+        dragend() {
+          const marker = markerRef.current
+          if (marker != null) {
+            setPosition(marker.getLatLng())
+            setCenter(marker.getLatLng())
+            MyPosition()
+
+          }
+          console.log(pos);
+        },
+      }),
+      [],
+    )
+    const toggleDraggable = useCallback(() => {
+      setDraggable((d) => !d)
+    }, [])
+
+    return React.createElement(
+        <>
+      <Marker
+        draggable={draggable}
+        eventHandlers={eventHandlers}
+        position={pos}
+        icon={userIcon}
+        ref={markerRef}>
+        <Popup minWidth={90}>
+          <span onClick={toggleDraggable}>
+            {draggable
+              ? 'Marker is draggable'
+              : 'Click here to make marker draggable'}
+          </span>
+        </Popup>
+      </Marker>
+      </>
+    )
+  }
+
+
+
+  const userIcon = icon({
+    iconUrl: require("../../pers.png"),
+    iconSize: [38, 38],
+    iconAnchor: [15, 20],
+    popupAnchor: [-3, -76],
+    tooltipAnchor: [45, 100]
+    
+
+  });

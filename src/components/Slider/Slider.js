@@ -2,24 +2,25 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useContext } from 'react';
-import { PositionContext } from '../home/Home';
+import { PositionContext } from '../../App';
 
 
 
-export default function DiscreteSlider({setPostion}) {
+
+export default function DiscreteSlider() {
 
     function Valuetext(value) {
         //console.log(value);
-        //const setPosition= useContext()
-        PositionContext.value = value
+        const {setPosition}= useContext(PositionContext)
+       setPosition(value)
       return value;
     }
     
    
 
   return (
-    <Box sx={{ width: '70vw' }}>
-      <Slider sx={{margin: '30px'}}
+    <Box sx={{ width: '70vw'}}>
+      <Slider sx={{margin: '30px' }}
         aria-label="Distance"
         defaultValue={10000}
         getAriaValueText={Valuetext}

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import './SignIn.css'
 
 const SignIn = () => {
     const navigate = useNavigate()
 
-const [toggleError, setToggleError] = useState(false)
+    const [toggleError, setToggleError] = useState(false)
 
     const [user, setUser] = useState({
         email: "",
@@ -22,22 +23,27 @@ const [toggleError, setToggleError] = useState(false)
     }
 
     const signInSubmitHandler = () => {
-        
+
         console.log(user);
 
         axios.post("http://localhost:8080/user/signIn", user)
-        .then((response) => {
-            console.log(response);
-            const loggedInUser = response.data
-            localStorage.setItem('email', loggedInUser.email)
+            .then((response) => {
+                console.log(response);
+                const loggedInUser = response.data
+                console.log(loggedInUser);
+                if (loggedInUser != "") {
 
+                    localStorage.setItem('email', loggedInUser.email)
+                    navigate('/')
+                }else{
+                    setToggleError(true)
+                navigate('/signIn')
+                }
 
-            navigate('/')
-
-        }).catch((error)=> {
-            setToggleError(true)
-            console.log("error: " + error)
-        })
+            }).catch((error) => {
+                setToggleError(true)
+                console.log("error: " + error)
+            })
     }
     const toggleErrorFunc = () => {
         if (toggleError) {
@@ -46,16 +52,16 @@ const [toggleError, setToggleError] = useState(false)
         return null
     }
 
-    return(
+    return (
         <form className="row g-3">
             <h2> Sign in below!!</h2>
-           
-          
-            <div className="col-md-6">
+
+
+            <div className="form-input">
                 <label for="inputEmail4" className="form-label">Email</label>
                 <input name="email" value={user.email} onChange={userChangeHandler} type="email" className="form-control" id="inputEmail4" />
             </div>
-            <div className="col-md-6">
+            <div className="form-input">
                 <label for="inputPassword4" className="form-label">Password</label>
                 <input name="password" value={user.password} onChange={userChangeHandler} type="password" className="form-control" id="inputPassword4" />
             </div>
@@ -63,6 +69,10 @@ const [toggleError, setToggleError] = useState(false)
                 <button onClick={signInSubmitHandler} className="bg-dark btn btn-outline-success" type="button">Sign In</button>
             </div>
             {toggleErrorFunc()}
+            <div>
+                <p>Need an account?</p>
+                <a className='header-buttons' href="/signUp">Click Here</a>
+            </div>
         </form>
 
     )

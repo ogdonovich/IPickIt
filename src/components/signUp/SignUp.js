@@ -35,7 +35,8 @@ const [toggleError, setToggleError] = useState(false)
 
         axios.post("http://localhost:8080/user/signUp", user)
         .then((response) => {
-            navigate('/')
+
+            navigate('/signIn')
 
         }).catch((error)=> {
             setToggleError(true)
@@ -91,6 +92,10 @@ const [toggleError, setToggleError] = useState(false)
                 <button onClick={signUpSubmitHandler} className="bg-dark btn btn-outline-success" type="button">Sign up</button>
             </div>
             {toggleErrorFunc()}
+            <div>
+                <p>Already have an account?</p> 
+                <a className='header-buttons' href="/signIn">Click Here</a>
+            </div>
         </form>
         </div>
 

@@ -5,15 +5,15 @@ import axios from 'axios';
 import Header from '../header/Header';
 import App from '../../App';
 import '../../App.css'
-import Maploader from '../map/MapLoader2'
+import Maploader from '../map/MapLoader'
 import React from 'react'
-import Slider from '../Slider/Slider'
 
 
 
 
 
-export const PositionContext = React.createContext()
+
+
 
 
 
@@ -29,9 +29,16 @@ export default function Home() {
         console.log(e);
       })
     }, [])
+
+    // const capitalizeFirstLowercaseRest = str => {
+    //   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    // };
   
     const displayUserName = () => {
       if(localStorage.getItem("email")) {
+        
+          
+
         return (
           
             ' ' + user?.firstName  + ' ' + user?.lastName
@@ -42,32 +49,29 @@ export default function Home() {
 
 
 
-  const [pos, setPosition] = useState(10000)
+  // const [pos, setPosition] = useState(10000)
   // const range = useContext(setPosition)
   // console.log(range);
 
 
   return (
-    <PositionContext.Provider value={{pos, setPosition}}>
+   
       <div className='center flex-col'>
         <div className='center flex-col'>
-          <h1 className='center'>Welcome {displayUserName()}</h1>
+          <h1 className='center'>Welcome, {displayUserName()}!</h1>
         </div>
-        <div className='center'>
+        <div className='center flex-col'>
         
           <Maploader />
           
         </div>
-        <div className='center'>
-          
-          <Slider />
-        </div>
+
 
 
       </div>
 
 
-    </PositionContext.Provider>
+   
 
   );
 

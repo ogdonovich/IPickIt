@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo, useCallback, useContext } from 'react';
+import { useEffect, useState, useRef, useMemo, useCallback, useContext, useReducer } from 'react';
 import * as React from 'react';
 import {
   MapContainer,
@@ -9,9 +9,14 @@ import {
 } from 'react-leaflet'
 import { L, marker, LatLngExpression, tooltip, icon, Icon } from 'leaflet'
 //import places from '../../response_1655493817203.json'
-import { PositionContext } from '../home/Home';
+
 
 import axios from 'axios'
+import LocationModal from './LocationModal';
+import Button from '@mui/material/Button';
+import { Modal, Box } from '@mui/material';
+import Slider from '../Slider/Slider'
+import { PositionContext } from '../../App';
 
 
 
@@ -29,7 +34,16 @@ function MapLoader2(props) {
 
   }, [])
 
+//   const reducer = (state, action, input) => {
+//     switch (action.type){
+//       case "setLatPosition":
+//         return {center: state.center.lat = input, }
+//     }
+//   }
 
+// const mapReducer = () => {
+//   const [state, dispatch] = useReducer(reducer, {center: { lat: 37.09, lng: -95.71 }, locations: {results: []}})
+// }
 
   const [center, setCenter] = useState({ lat: 37.09, lng: -95.71 })
   const [locations, setLocations] = useState({ results: [] })
@@ -37,8 +51,9 @@ function MapLoader2(props) {
   
   const {pos} = useContext(PositionContext)
 
+
   const containerStyle = {
-    width: '80vw', height: '70vh'
+    width: '95vw', height: '70vh'
   };
 
   function useAxiopoicall() {
@@ -47,9 +62,9 @@ function MapLoader2(props) {
     let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${pos}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
     //console.log(``);
    
-    
-    axios.get(nearBytemp)
+    axios.get(`${nearBytemp}`)
       .then((response) => {
+        console.log(nearBytemp);
 
         setLocations(response.data)
         console.log(response.data.summary.geoBias);
@@ -89,23 +104,19 @@ function MapLoader2(props) {
   function MyPosition() {
     const map = useMap()
     map.setView(center, 15)
+   
     useAxiopoicall()
     MarkerMaker()
     return null;
   }
 
-  // const position = () => {
 
-  //  const lat = places.element.position.lat
-  //  const lng = places.element.position.lon
-
-  //   return lat,lng;
-
-  // }
 
   function MarkerMaker() {
 
     var map = useMap()
+
+  
 
     {
       locations.results.forEach(place => {
@@ -124,9 +135,9 @@ function MapLoader2(props) {
       }
 
       )
-    }
+    
 
-
+  }
   }
 
   function DraggableMarker() {
@@ -174,6 +185,7 @@ function MapLoader2(props) {
     iconUrl: require("../../locationpincur.png"),
     iconSize: [29, 52],
     iconAnchor: [15, 20],
+    opacity: [.5]
     
     
 
@@ -185,13 +197,37 @@ function MapLoader2(props) {
     iconAnchor: [15, 20],
     popupAnchor: [-3, -76],
     tooltipAnchor: [45, 100]
+    
 
   });
+
+  
+  const [toggleModal, setToggleModal] = useState(false)
+
+
+const displayLocationModal = () => {
+    
+        return (
+           
+            <div className='justify-center'>
+            <LocationModal toggleModal = {toggleModal} setToggleModal= {setToggleModal} locations = {locations}/>
+          
+          </div>
+            
+        )
+    
+}
+
+
 
 
   return (
 
-
+    
+<>
+<div className='modal-btn'>
+<Button onClick={() => setToggleModal(true)}>Click</Button>
+</div>
     <MapContainer center={center} zoom={10} style={containerStyle} scrollWheelZoom={true}>
 
       <TileLayer
@@ -212,9 +248,18 @@ function MapLoader2(props) {
 
 
     </MapContainer>
+    <div>
+    <div className='center'>
+          
+          <Slider />
+        </div>
+    </div>
+<div>
+  {displayLocationModal()}
+</div>
 
-
-
+   
+    </>
 
   )
 }
