@@ -42,3 +42,43 @@
     align-self: center;
   }
 
+  @media only screen and (max-width: 700px) {
+    .header-buttons {
+      -moz-box-direction: column;
+      -webkit-box-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -ms-flexbox-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      align-content: end;
+    }
+
+    .logo{
+      position: relative;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .header-buttons {
+      -moz-box-direction: column;
+      -webkit-box-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -ms-flexbox-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      align-content: end;
+    }
+
+    .logo a{ 
+      
+    
+    }
+    .logo-mobile a {
+      width: 20vw;
+      
+      
+    }
+
+  }

@@ -110,3 +110,15 @@ body {
   background-color: #1f1f1f;
   
 }
+
+.modal-results {
+  margin: 10px;
+}
+.restuarant-result {
+  margin: 10px;
+}
+
+.modal-box{
+  height: 90vh;
+  justify-content: center;
+}
