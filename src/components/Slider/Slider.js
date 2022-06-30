@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useContext } from 'react';
-import { PositionContext } from '../../App';
+import { SliderPositionContext } from '../../App';
 
 
 
@@ -11,7 +11,7 @@ export default function DiscreteSlider() {
 
     function Valuetext(value) {
         //console.log(value);
-        const {setPosition}= useContext(PositionContext)
+        const {setPosition}= useContext(SliderPositionContext)
        setPosition(value)
       return value;
     }

@@ -11,7 +11,7 @@ import { useState, Suspense } from 'react';
 
 
 const style = {
-  position: 'flex',
+  p: 'flex',
   //  top: '50%',
   //  left: '50%',
   // transform: 'translate(-50%, -50%)',
@@ -19,6 +19,7 @@ const style = {
   height: '90vh',
   bgcolor: 'rgba(0,0,0, .9)',
   border: '3px solid #512DA8 ',
+  
   boxShadow: 24,
   p: 1,
   zindex: 1000,
@@ -43,6 +44,10 @@ export default function LocationModal({ toggleModal, setToggleModal, locations }
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
 
+  function convertMeterToMiles(meter) {
+    const miles = meter / 1609
+  return (miles.toFixed(2))
+  }
 
   function randomResturants() {
 
@@ -59,6 +64,7 @@ export default function LocationModal({ toggleModal, setToggleModal, locations }
     }
 
     return resturantSelected.map((element) =>{
+      const tempMapcall = `https://maps.google.com/?q=${element.address.freeformAddress}`;
       return (
         
         <Box sx={style}>
@@ -69,6 +75,8 @@ export default function LocationModal({ toggleModal, setToggleModal, locations }
               <div className='horizontal-center'>Name: {element.poi.name}</div>
               <div className='horizontal-center'>Phone: {element.poi.phone}</div>
               <div className='horizontal-center'>Address: {element.address.freeformAddress}</div>
+              <div className='horizontal-center'>Distance: {convertMeterToMiles(element.dist)} mi</div>
+              <a className='modal-direct-btn' onClick={() => window.open(`https://maps.google.com/?q=${element.address.freeformAddress}`)}>Directions</a>
             </div>
   
           </div>

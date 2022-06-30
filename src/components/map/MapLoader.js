@@ -16,7 +16,7 @@ import LocationModal from './LocationModal';
 import Button from '@mui/material/Button';
 import { Modal, Box } from '@mui/material';
 import Slider from '../Slider/Slider'
-import { PositionContext } from '../../App';
+import { SliderPositionContext } from '../../App';
 
 
 
@@ -39,7 +39,7 @@ function MapLoader2(props) {
   const [locations, setLocations] = useState({ results: [] })
 
 
-  const { pos } = useContext(PositionContext)
+  const { pos } = useContext(SliderPositionContext)
 
 
   const containerStyle = {
@@ -48,7 +48,7 @@ function MapLoader2(props) {
 
   function useAxiopoicall() {
     let key = "p0HbJr63a4YIthe7AH4iq05DKpndv0Qy"
-    let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(PositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
+    let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(SliderPositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
     let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${pos}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
     //console.log(``);
 
@@ -218,7 +218,7 @@ function MapLoader2(props) {
 
     <>
       <div className='modal-btn'>
-        <button className='' onClick={() => setToggleModal(true)}>Let's Pick!!</button>
+        <button  onClick={() => setToggleModal(true)}>Let's Pick!!</button>
       </div>
       <MapContainer center={center} zoom={10} style={containerStyle} scrollWheelZoom={true}>
 
