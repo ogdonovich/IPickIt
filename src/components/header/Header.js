@@ -30,7 +30,7 @@ const Header = (props) => {
             </div> */}
             <div className='header third-width header-buttons' >
                 {window.location.pathname === "/signUp" || window.location.pathname === "/signIn" || localStorage.getItem('email') != undefined  ? <div><a className='header-buttons' onClick={window.localStorage.clear()} href="/signIn">Log out</a></div> : 
-                <div>
+                <div className='header-buttons'>
                 <a className='header-buttons' href="/signUp">Sign Up</a>
                 <a className='header-buttons' href="/signIn">Sign In</a>
                 </div>

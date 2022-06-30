@@ -49,6 +49,8 @@ export default function LocationModal({ toggleModal, setToggleModal, locations }
   return (miles.toFixed(2))
   }
 
+  
+
   function randomResturants() {
 
     const resturantSelected = [];
@@ -65,17 +67,18 @@ export default function LocationModal({ toggleModal, setToggleModal, locations }
 
     return resturantSelected.map((element) =>{
       const tempMapcall = `https://maps.google.com/?q=${element.address.freeformAddress}`;
+      
       return (
         
         <Box sx={style}>
           <div className='full-height full-width flex-col justify-center restuarant-result'>
             
-            <div className='horizontal-center'>How does this sound?</div>
+            <div className='horizontal-center modal-data-title'>How does this sound?</div>
             <div className="flex-col justify-center">
-              <div className='horizontal-center'>Name: {element.poi.name}</div>
-              <div className='horizontal-center'>Phone: {element.poi.phone}</div>
-              <div className='horizontal-center'>Address: {element.address.freeformAddress}</div>
-              <div className='horizontal-center'>Distance: {convertMeterToMiles(element.dist)} mi</div>
+              <div className='horizontal-center modal-data'>Name: {element.poi.name}</div>
+              <div className='horizontal-center modal-data'>Phone: {element.poi.phone}</div>
+              <div className='horizontal-center modal-data'>Address: {element.address.freeformAddress}</div>
+              <div className='horizontal-center modal-data'>Distance: {convertMeterToMiles(element.dist)} mi</div>
               <a className='modal-direct-btn' onClick={() => window.open(`https://maps.google.com/?q=${element.address.freeformAddress}`)}>Directions</a>
             </div>
   

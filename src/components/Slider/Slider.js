@@ -20,11 +20,12 @@ export default function DiscreteSlider() {
 
   return (
     <Box sx={{ width: '70vw'}}>
-      <Slider sx={{margin: '30px' }}
+      <div className='modal-data-title'>Range</div>
+      <Slider sx={{margin: '30px', color: '#009688' }}
         aria-label="Distance"
         defaultValue={10000}
         getAriaValueText={Valuetext}
-        aria-valuetext=""
+        aria-valuetext="meters"
         aria-labelledby="miles"
         valueLabelDisplay="auto"
         step={1000}
@@ -33,7 +34,7 @@ export default function DiscreteSlider() {
         max={50000}
        //onChange={useContext(valuetext)}
       />
-     
+     <div>Meters</div>
     </Box>
 
     

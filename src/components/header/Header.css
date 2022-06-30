@@ -43,8 +43,10 @@
     align-self: center;
   }
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 675px) {
     .header-buttons {
+      margin-right: auto;
+      padding-right: 4px;
       -moz-box-direction: column;
       -webkit-box-direction: column;
       -webkit-box-orient: vertical;
@@ -57,10 +59,11 @@
 
     .logo{
       position: relative;
+      transform: scale(85%);
     }
   }
 
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 325px) {
     .header-buttons {
       -moz-box-direction: column;
       -webkit-box-direction: column;
@@ -70,16 +73,14 @@
       -ms-flex-direction: column;
       flex-direction: column;
       align-content: end;
+      transform: scale(90%);
+     
     }
 
-    .logo a{ 
-      
-    
+    .logo{
+      transform: inherit;
+      transform: scale(75%);
     }
-    .logo-mobile a {
-      width: 20vw;
-      
-      
-    }
+ 
 
   }

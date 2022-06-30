@@ -197,16 +197,18 @@ function MapLoader2(props) {
 
   const displayLocationModal = () => {
 
-   if(locations.results.length > 0) {return (
-      <div className='justify-center'>
+    if (locations.results.length > 0) {
+      return (
+        <div className='justify-center'>
 
-        <LocationModal toggleModal={toggleModal} setToggleModal={setToggleModal} locations={locations} />
+          <LocationModal toggleModal={toggleModal} setToggleModal={setToggleModal} locations={locations} />
 
-      </div>
+        </div>
 
 
 
-    )}
+      )
+    }
 
   }
 
@@ -218,7 +220,7 @@ function MapLoader2(props) {
 
     <>
       <div className='modal-btn'>
-        <button  onClick={() => setToggleModal(true)}>Let's Pick!!</button>
+        <button onClick={() => setToggleModal(true)}>Let's Pick!!</button>
       </div>
       <MapContainer center={center} zoom={10} style={containerStyle} scrollWheelZoom={true}>
 
@@ -226,7 +228,8 @@ function MapLoader2(props) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-
+        <MyPosition />
+        <MarkerMaker />
 
         <DraggableMarker
         >
@@ -235,8 +238,7 @@ function MapLoader2(props) {
 
 
 
-        <MyPosition />
-        <MarkerMaker />
+
 
 
       </MapContainer>
