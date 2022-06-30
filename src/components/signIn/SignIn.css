@@ -37,10 +37,10 @@ button {
     cursor: pointer;
     display: inline-block;
     
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 20px;
-    padding: 6px 16px;
+    padding: 16px 20px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -57,4 +57,8 @@ h2 {
 
 .form-input {
   margin: 10px 0;
+}
+
+.modal-btn {
+  margin-bottom: 15px;
 }

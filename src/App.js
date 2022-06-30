@@ -7,14 +7,14 @@ import SignUp from './components/signUp/SignUp';
 import SignIn from './components/signIn/SignIn';
 import React, {useState} from 'react';
 
-export const PositionContext = React.createContext()
+export const SliderPositionContext = React.createContext()
 
 function App() {
-  const [pos, setPosition] = useState(10000)
+  const [slidePosition, setSlidePosition] = useState(10000)
 
 
   return (
-    <PositionContext.Provider value={{pos, setPosition}}>
+    <SliderPositionContext.Provider value={{pos: slidePosition, setPosition: setSlidePosition}}>
     <PageWrapper>
     <Routes>
       <Route exact path='/' element={<Home/>}/>
@@ -23,7 +23,7 @@ function App() {
     
     </Routes>
     </PageWrapper>
-    </PositionContext.Provider>
+    </SliderPositionContext.Provider>
   );
 }
 

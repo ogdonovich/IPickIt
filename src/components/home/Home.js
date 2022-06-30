@@ -1,9 +1,7 @@
 
 
-import { Fragment, useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from '../header/Header';
-import App from '../../App';
 import '../../App.css'
 import Maploader from '../map/MapLoader'
 import React from 'react'
@@ -30,9 +28,7 @@ export default function Home() {
       })
     }, [])
 
-    // const capitalizeFirstLowercaseRest = str => {
-    //   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    // };
+   
   
     const displayUserName = () => {
       if(localStorage.getItem("email")) {
@@ -49,9 +45,7 @@ export default function Home() {
 
 
 
-  // const [pos, setPosition] = useState(10000)
-  // const range = useContext(setPosition)
-  // console.log(range);
+  
 
 
   return (

@@ -9,8 +9,8 @@ const SignUp = () => {
 const [toggleError, setToggleError] = useState(false)
 
     const [user, setUser] = useState({
-        first_name: "",
-        last_name: "",
+        firstName: "",
+        lastName: "",
         age: "",
         email: "",
         password: "",
@@ -64,12 +64,12 @@ const [toggleError, setToggleError] = useState(false)
             <h4> * indicates a required entry</h4>
             <div className="form-input">
                 <label for="inputFirstName" className="form-label">First Name</label>
-                <input name="first_name" value={user.first_name} onChange={userChangeHandler} type="text" className="form-control" id="inputFirstName" autoComplete="given-name" />
+                <input name="firstName" value={user.firstName} onChange={userChangeHandler} type="text" className="form-control" id="inputFirstName" autoComplete="given-name" />
             </div>
             
             <div className="form-input">
                 <label for="inputLastName" className="form-label">Last Name</label>
-                <input name="last_name"  value={user.last_name} onChange={userChangeHandler} type="text" className="form-control" id="inputLastName" />
+                <input name="lastName"  value={user.lastName} onChange={userChangeHandler} type="text" className="form-control" id="inputLastName" />
             </div>
 
           

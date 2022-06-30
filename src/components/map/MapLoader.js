@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo, useCallback, useContext, useReducer } from 'react';
+import { useEffect, useState, useRef, useMemo, useCallback, useContext, Suspense } from 'react';
 import * as React from 'react';
 import {
   MapContainer,
@@ -16,7 +16,7 @@ import LocationModal from './LocationModal';
 import Button from '@mui/material/Button';
 import { Modal, Box } from '@mui/material';
 import Slider from '../Slider/Slider'
-import { PositionContext } from '../../App';
+import { SliderPositionContext } from '../../App';
 
 
 
@@ -26,30 +26,20 @@ import { PositionContext } from '../../App';
 
 
 function MapLoader2(props) {
-  //Hooks
-  //let locations = places;
+
 
   useEffect(() => {
     getLocation()
 
   }, [])
 
-//   const reducer = (state, action, input) => {
-//     switch (action.type){
-//       case "setLatPosition":
-//         return {center: state.center.lat = input, }
-//     }
-//   }
 
-// const mapReducer = () => {
-//   const [state, dispatch] = useReducer(reducer, {center: { lat: 37.09, lng: -95.71 }, locations: {results: []}})
-// }
 
   const [center, setCenter] = useState({ lat: 37.09, lng: -95.71 })
   const [locations, setLocations] = useState({ results: [] })
 
-  
-  const {pos} = useContext(PositionContext)
+
+  const { pos } = useContext(SliderPositionContext)
 
 
   const containerStyle = {
@@ -58,10 +48,10 @@ function MapLoader2(props) {
 
   function useAxiopoicall() {
     let key = "p0HbJr63a4YIthe7AH4iq05DKpndv0Qy"
-    let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(PositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
+    let poitemp = `https://api.tomtom.com/search/2/poiSearch/restaurant.json?limit=100&lat=${center.lat}&lon=${center.lng}&radius=${useContext(SliderPositionContext)}&view=Unified&relatedPois=off&key=p0HbJr63a4YIthe7AH4iq05DKpndv0Qy`
     let nearBytemp = `https://api.tomtom.com/search/2/nearbySearch/.json?lat=${center.lat}&lon=${center.lng}&limit=50&radius=${pos}&categorySet=7315&view=Unified&relatedPois=off&key=${key}`
     //console.log(``);
-   
+
     axios.get(`${nearBytemp}`)
       .then((response) => {
         console.log(nearBytemp);
@@ -104,7 +94,7 @@ function MapLoader2(props) {
   function MyPosition() {
     const map = useMap()
     map.setView(center, 15)
-   
+
     useAxiopoicall()
     MarkerMaker()
     return null;
@@ -116,7 +106,7 @@ function MapLoader2(props) {
 
     var map = useMap()
 
-  
+
 
     {
       locations.results.forEach(place => {
@@ -127,7 +117,7 @@ function MapLoader2(props) {
         // console.log(locationDetials);
 
 
-        let newMark = new marker([place.position.lat, place.position.lon], {icon: locIcon})
+        let newMark = new marker([place.position.lat, place.position.lon], { icon: locIcon })
           .bindTooltip(place.poi.name, { permanent: false })
           .bindPopup(locationDetials)
           .addTo(map)
@@ -135,9 +125,9 @@ function MapLoader2(props) {
       }
 
       )
-    
 
-  }
+
+    }
   }
 
   function DraggableMarker() {
@@ -186,8 +176,8 @@ function MapLoader2(props) {
     iconSize: [29, 52],
     iconAnchor: [15, 20],
     opacity: [.5]
-    
-    
+
+
 
   });
 
@@ -197,68 +187,72 @@ function MapLoader2(props) {
     iconAnchor: [15, 20],
     popupAnchor: [-3, -76],
     tooltipAnchor: [45, 100]
-    
+
 
   });
 
-  
+
   const [toggleModal, setToggleModal] = useState(false)
+  //const 
+
+  const displayLocationModal = () => {
+
+    if (locations.results.length > 0) {
+      return (
+        <div className='justify-center'>
+
+          <LocationModal toggleModal={toggleModal} setToggleModal={setToggleModal} locations={locations} />
+
+        </div>
 
 
-const displayLocationModal = () => {
-    
-        return (
-           
-            <div className='justify-center'>
-            <LocationModal toggleModal = {toggleModal} setToggleModal= {setToggleModal} locations = {locations}/>
-          
-          </div>
-            
-        )
-    
-}
+
+      )
+    }
+
+  }
 
 
 
 
   return (
 
-    
-<>
-<div className='modal-btn'>
-<Button onClick={() => setToggleModal(true)}>Click</Button>
-</div>
-    <MapContainer center={center} zoom={10} style={containerStyle} scrollWheelZoom={true}>
 
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    <>
+      <div className='modal-btn'>
+        <button onClick={() => setToggleModal(true)}>Let's Pick!!</button>
+      </div>
+      <MapContainer center={center} zoom={10} style={containerStyle} scrollWheelZoom={true}>
 
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
+        <MyPosition />
+        <MarkerMaker />
 
-      <DraggableMarker
-      >
+        <DraggableMarker
+        >
 
-      </DraggableMarker>
-
-
-
-      <MyPosition />
-      <MarkerMaker />
+        </DraggableMarker>
 
 
-    </MapContainer>
-    <div>
-    <div className='center'>
-          
+
+
+
+
+      </MapContainer>
+      <div>
+        <div className='center'>
+
           <Slider />
         </div>
-    </div>
-<div>
-  {displayLocationModal()}
-</div>
+      </div>
+      <div>
+        {displayLocationModal()}
+      </div>
 
-   
+
     </>
 
   )
