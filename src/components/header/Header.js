@@ -4,17 +4,36 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import logo from '../../Group 3.svg'
 import mobileLogo from '../../Eyelogo.svg'
+import { useContext } from 'react'
+import { UserContext } from '../../App'
+import { Button } from '@mui/material'
 
 const Header = (props) => {
 
+    const {user, setUser} = useContext(UserContext)
+
+  const style = {
+    p: 'flex',
+    //  top: '50%',
+    //  left: '50%',
+    // transform: 'translate(-50%, -50%)',
+    color: '#fff',
+    width: 'auto',
+    height: 'flex',
+    bgcolor: '#009688',
+    border: '3px solid #512DA8 ',
+    borderRadius: '50px',
+    fontWeight: '600',
+    fontSize:'15px',
+    fontFamily: 'inherited'
+    
     
 
-  
-    const displayUserName = () => {
 
 
+    
+  }
 
-    }
 
 
     return(
@@ -29,7 +48,9 @@ const Header = (props) => {
             <a href="/"><img src={mobileLogo} className='logo-mobile' alt="logo" /></a>
             </div> */}
             <div className='header third-width header-buttons' >
-                {window.location.pathname === "/signUp" || window.location.pathname === "/signIn" || localStorage.getItem('email') != undefined  ? <div><a className='header-buttons' onClick={window.localStorage.clear()} href="/signIn">Log out</a></div> : 
+                {window.localStorage.getItem('email') ? 
+                <div><Button className='header-buttons' onClick={() => window.localStorage.removeItem('email')} sx={style} href="/signIn">Log out</Button></div> 
+                : 
                 <div className='header-buttons'>
                 <a className='header-buttons' href="/signUp">Sign Up</a>
                 <a className='header-buttons' href="/signIn">Sign In</a>

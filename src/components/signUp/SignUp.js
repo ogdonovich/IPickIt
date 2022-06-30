@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import './SignUp.css'
+import { UserContext } from "../../App";
+
 
 const SignUp = () => {
     const navigate = useNavigate()
 
+const {user, setUser} = useContext(UserContext)
+
 const [toggleError, setToggleError] = useState(false)
 
-    const [user, setUser] = useState({
+    const [signedUpUser, setSignedUpUser] = useState({
         firstName: "",
         lastName: "",
         age: "",
@@ -22,9 +26,9 @@ const [toggleError, setToggleError] = useState(false)
     const userChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        const tempUser = { ...user };
+        const tempUser = { ...signedUpUser };
         tempUser[name] = value;
-        setUser(tempUser);
+        setSignedUpUser(tempUser);
         setToggleError(false)
 
     }
@@ -33,10 +37,14 @@ const [toggleError, setToggleError] = useState(false)
         
 
 
-        axios.post("http://localhost:8080/user/signUp", user)
+        axios.post("http://localhost:8080/user/signUp", signedUpUser)
         .then((response) => {
+            console.log(response.data);
+            localStorage.setItem('email', signedUpUser.email)
+            setUser(response.data)
+            console.log(user);
 
-            navigate('/signIn')
+            navigate('/')
 
         }).catch((error)=> {
             setToggleError(true)
@@ -50,10 +58,7 @@ const [toggleError, setToggleError] = useState(false)
         return null
     }
 
-    // const passwordVerification = () => {
-    //     if() {return true}
 
-    // }
 
     return(
         <div>

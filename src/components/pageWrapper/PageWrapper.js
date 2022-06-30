@@ -13,7 +13,7 @@ const PageWrapper = (props) => {
                 </div>
                 
       <div className='center'>
-      <Footad />
+      
       </div>
             </div>
       </div>

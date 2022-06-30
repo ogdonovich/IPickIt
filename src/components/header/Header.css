@@ -63,7 +63,7 @@
     }
   }
 
-  @media only screen and (max-width: 325px) {
+  @media only screen and (max-width: 365px) {
     .header-buttons {
       -moz-box-direction: column;
       -webkit-box-direction: column;
@@ -73,13 +73,13 @@
       -ms-flex-direction: column;
       flex-direction: column;
       align-content: end;
-      transform: scale(90%);
+      transform: scale(80%);
      
     }
 
     .logo{
       transform: inherit;
-      transform: scale(75%);
+      transform: scale(70%);
     }
  
 

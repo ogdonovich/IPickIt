@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import './SignIn.css'
+import { UserContext } from "../../App";
 
 const SignIn = () => {
     const navigate = useNavigate()
 
     const [toggleError, setToggleError] = useState(false)
 
-    const [user, setUser] = useState({
+    const {user, setUser} = useContext(UserContext)
+
+    const [signedInUser, setSignedInUser] = useState({
         email: "",
         password: ""
     })
@@ -17,16 +20,16 @@ const SignIn = () => {
     const userChangeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        const tempUser = { ...user };
+        const tempUser = { ...signedInUser };
         tempUser[name] = value;
-        setUser(tempUser)
+        setSignedInUser(tempUser)
     }
 
     const signInSubmitHandler = () => {
 
-        console.log(user);
+        console.log(signedInUser);
 
-        axios.post("http://localhost:8080/user/signIn", user)
+        axios.post("http://localhost:8080/user/signIn", signedInUser)
             .then((response) => {
                 console.log(response);
                 const loggedInUser = response.data
@@ -34,6 +37,7 @@ const SignIn = () => {
                 if (loggedInUser != "") {
 
                     localStorage.setItem('email', loggedInUser.email)
+                    setUser(loggedInUser)
                     navigate('/')
                 }else{
                     setToggleError(true)
@@ -59,11 +63,11 @@ const SignIn = () => {
 
             <div className="form-input">
                 <label for="inputEmail4" className="form-label">Email</label>
-                <input name="email" value={user.email} onChange={userChangeHandler} type="email" className="form-control" id="inputEmail4" />
+                <input name="email" value={signedInUser.email} onChange={userChangeHandler} type="email" className="form-control" id="inputEmail4" />
             </div>
             <div className="form-input">
                 <label for="inputPassword4" className="form-label">Password</label>
-                <input name="password" value={user.password} onChange={userChangeHandler} type="password" className="form-control" id="inputPassword4" />
+                <input name="password" value={signedInUser.password} onChange={userChangeHandler} type="password" className="form-control" id="inputPassword4" />
             </div>
             <div className="d-grid gap-2 ">
                 <button onClick={signInSubmitHandler} className="bg-dark btn btn-outline-success" type="button">Sign In</button>

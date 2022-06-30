@@ -1,10 +1,11 @@
 
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../App.css'
 import Maploader from '../map/MapLoader'
 import React from 'react'
+import { UserContext } from '../../App';
 
 
 
@@ -16,7 +17,9 @@ import React from 'react'
 
 
 export default function Home() {
-   const [user, setUser] = useState(null)
+  
+const {user, setUser} = useContext(UserContext)
+
     useEffect(() => {
       const email = localStorage.getItem("email")
       axios.get(`http://localhost:8080/user/findUserByEmail/${email}`)
